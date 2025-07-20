@@ -124,14 +124,10 @@ if data_type == "nlp":
     )
 
     training_args = TrainingArguments(
-        output_dir="./nlp_model",
-        evaluation_strategy="epoch",
-        num_train_epochs=2,
-        per_device_train_batch_size=8,
-        save_strategy="no",
-        logging_dir="./logs",
-        logging_steps=10,
-        disable_tqdm=False,
+    output_dir="./nlp_model",
+    num_train_epochs=10,
+    per_device_train_batch_size=8,
+    logging_dir="./logs",
     )
 
     trainer = Trainer(
@@ -161,7 +157,7 @@ if data_type == "nlp":
     plt.title("Confusion Matrix")
     plt.tight_layout()
     plt.savefig("confusion_matrix_nlp.png")
-    mr.Image("confusion_matrix_nlp.png")
+    mr.Markdown("![Confusion Matrix](confusion_matrix_nlp.png)")
 
     # Save model + label encoder
     model_path = "best_model_nlp"
@@ -170,7 +166,7 @@ if data_type == "nlp":
     joblib.dump(le, os.path.join(model_path, "label_encoder.pkl"))
 
     shutil.make_archive(model_path, "zip", model_path)
-    mr.File(label="Download Best NLP Model (.zip)", path=model_path + ".zip")
+    # mr.File(label="Download Best NLP Model (.zip)", path=model_path + ".zip")
 # ─────────────────────────────────────────────────────────────────────────────
 # TABULAR CLASSIFICATION
 # ─────────────────────────────────────────────────────────────────────────────
