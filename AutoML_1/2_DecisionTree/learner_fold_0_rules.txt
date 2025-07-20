@@ -1,4 +1,0 @@
-if (text > 1.5) then class: negative (proba: 100.0%) | based on 15 samples
-
-if (text <= 1.5) then class: positive (proba: 100.0%) | based on 15 samples
-
