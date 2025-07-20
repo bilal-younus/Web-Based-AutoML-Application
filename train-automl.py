@@ -5,6 +5,7 @@
 
 
 import os
+import streamlit as st
 import shutil
 import pandas as pd
 import mercury as mr
@@ -58,7 +59,8 @@ data_file.filename
 
 
 if data_file.filename is None:
-    mr.Stop()
+    st.error("Stopping app due to issue")
+    st.stop()
 
 # Load Data
 if data_file.filename.endswith(".csv"):
@@ -179,7 +181,8 @@ elif data_type == "tabular":
 
     if x_columns.value is None or len(x_columns.value) == 0 or y_column.value is None:
         mr.Markdown("Please select input features and target column.")
-        mr.Stop()
+        st.error("Stopping app due to issue")
+        st.stop()
 
     # Mode and Algo Selection
     mode = mr.Select(label="AutoML Mode", value="Explain", choices=["Explain", "Perform", "Compete"])
