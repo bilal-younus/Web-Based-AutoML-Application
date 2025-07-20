@@ -81,7 +81,7 @@ mercury run
 If you would like to increase the input file limit, please change the cell:
 
 ```python
-data_file = mr.File(label="Upload CSV with training data", max_file_size="1MB")
+data_file = mr.File(label="Upload CSV with training data", max_file_size="100MB")
 ```
 
 and set your `max_file_size`.
