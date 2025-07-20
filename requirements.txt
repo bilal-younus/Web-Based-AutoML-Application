@@ -1,2 +1,12 @@
 mljar-supervised
 mercury
+pandas
+numpy
+matplotlib
+shap
+joblib
+scikit-learn
+transformers
+datasets
+ipython
+torch
